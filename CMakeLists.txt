@@ -34,9 +34,9 @@ target_compile_options(myaddin PRIVATE -Wall -Wextra -Os)
 target_link_libraries(myaddin Gint::Gint)
 
 if("${FXSDK_PLATFORM_LONG}" STREQUAL fx9860G)
-  generate_g1a(TARGET myaddin OUTPUT "MyAddin.g1a"
+  generate_g1a(TARGET myaddin OUTPUT "Photocasio.g3a"
     NAME "MyAddin" ICON assets-fx/icon.png)
 elseif("${FXSDK_PLATFORM_LONG}" STREQUAL fxCG50)
-  generate_g3a(TARGET myaddin OUTPUT "MyAddin.g3a"
+  generate_g3a(TARGET myaddin OUTPUT "Photocasio.g3a"
     NAME "MyAddin" ICONS assets-cg/icon-uns.png assets-cg/icon-sel.png)
 endif()
