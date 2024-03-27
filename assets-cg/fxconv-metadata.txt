@@ -1,0 +1,32 @@
+logo.png:
+  type: bopti-image
+  name: logo
+
+cursor.png:
+  type: bopti-image
+  name: cursor
+
+cursor_arrow.png:
+  type: bopti-image
+  name: cursor_arrow
+
+roboto_font.png:
+  type: font
+  charset: print
+  grid.size: 13x16
+  name: roboto_font
+  proportional: true
+
+anton_font.png:
+  type: font
+  charset: print
+  grid.size: 17x22
+  name: anton_font
+  proportional: true
+
+dosis_font.png:
+  type: font
+  charset: print
+  grid.size: 15x26
+  name: dosis_font
+  proportional: true
