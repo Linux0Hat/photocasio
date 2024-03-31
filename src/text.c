@@ -1,6 +1,5 @@
 #include <gint/keyboard.h>
 #include <gint/display.h>
-#include <math.h>
 
 #include "config.h"
 
@@ -38,8 +37,8 @@ void write(uint16_t* project, int language) {
 		pollevent();
 		if (keydown(KEY_F1)){
 			char text[27] = "";
-			int validated = text_input(texts[language], language, text);
-			if (text && validated) {
+			bool validated = text_input(texts[language], language, text);
+			if (text != "" && validated) {
 				char menu[12][10] = {
 					"", "",
 					"", "",

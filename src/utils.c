@@ -226,6 +226,7 @@ void set_color(int* color_r, int* color_g, int* color_b, int language) {
 		} else {
 			key_in_a_row = 0;
 		}
+    clearevents();
 		dupdate();
 		for (float j = 0; j<9000; j++) {}
 	}
@@ -234,7 +235,7 @@ void set_color(int* color_r, int* color_g, int* color_b, int language) {
 	*color_b = new_color_b;
 }
 
-int text_input(char title[27], int language, char *text) {
+bool text_input(char title[27], int language, char *text) {
   char texts[4][25] = {
 		"Confirm : EXE", "Confirmer : EXE", 
 		"Cancel : AC/ON", "Annuler : AC/ON"
@@ -249,14 +250,15 @@ int text_input(char title[27], int language, char *text) {
     } else if (keydown(KEY_DEL) && strlen(text) > 0) {
       text[strlen(text)-1] = '\0';
     } else if (keydown(KEY_ACON)) {
-      return 0;
+      return false;
     } else if (keydown(KEY_EXE)) {
-      return 1;
-    }else if (keydown(KEY_ALPHA)) {
+      return true;
+    } else if (keydown(KEY_ALPHA)) {
       alpha = !alpha;
     } else if (keydown(KEY_SHIFT)) {
       shift = !shift;
     }
+    clearevents();
     drect_border(73, 77, 323, 155, C_RGB(31,28,28), 3, C_BLACK);
     dtext(78, 88, C_BLACK, title);
     drect_border(78, 102, 318, 118, C_RGB(31,31,31), 1, C_BLACK);
@@ -275,35 +277,35 @@ int text_input(char title[27], int language, char *text) {
 }
 
 void move_cursor(int *cursor_pos, int *key_in_a_row, int wait_time) {
-    if (keydown(KEY_DOWN)) {
-        cursor_pos[1]++;
-        (*key_in_a_row)++;
-        if (cursor_pos[1] > DHEIGHT - 10) {
-            cursor_pos[1] = DHEIGHT - 10;
-        }
+  if (keydown(KEY_DOWN)) {
+    cursor_pos[1]++;
+    (*key_in_a_row)++;
+    if (cursor_pos[1] > DHEIGHT - 10) {
+        cursor_pos[1] = DHEIGHT - 10;
+    }
     } else if (keydown(KEY_UP)) {
-        cursor_pos[1]--;
-        (*key_in_a_row)++;
-        if (cursor_pos[1] < 0) {
-            cursor_pos[1] = 0;
-        }
-    } else if (keydown(KEY_RIGHT)) {
-        cursor_pos[0]++;
-        (*key_in_a_row)++;
-        if (cursor_pos[0] > DWIDTH) {
-            cursor_pos[0] = DWIDTH;
-        }
-    } else if (keydown(KEY_LEFT)) {
-        cursor_pos[0]--;
-        (*key_in_a_row)++;
-        if (cursor_pos[0] < 0) {
-            cursor_pos[0] = 0;
-        }
-    } else {
-        *key_in_a_row = 0;
-    }
+      cursor_pos[1]--;
+      (*key_in_a_row)++;
+      if (cursor_pos[1] < 0) {
+          cursor_pos[1] = 0;
+      }
+  } else if (keydown(KEY_RIGHT)) {
+      cursor_pos[0]++;
+      (*key_in_a_row)++;
+      if (cursor_pos[0] > DWIDTH) {
+          cursor_pos[0] = DWIDTH;
+      }
+  } else if (keydown(KEY_LEFT)) {
+      cursor_pos[0]--;
+      (*key_in_a_row)++;
+      if (cursor_pos[0] < 0) {
+          cursor_pos[0] = 0;
+      }
+  } else {
+      *key_in_a_row = 0;
+  }
 
-    if (*key_in_a_row < 7) {
-        for (float j = 0; j < wait_time; j++) {}
-    }
+   if (*key_in_a_row < 7) {
+      for (float j = 0; j < wait_time; j++) {}
+  }
 }

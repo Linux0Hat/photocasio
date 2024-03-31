@@ -45,6 +45,7 @@ void draw(uint16_t* project,int language) {
         }
 		// DPAD
 		move_cursor(&cursor_pos, &key_in_a_row, wait_time);
+		clearevents();
 		// DRAW
 		draw_project(project);
 		if (status == 1) {

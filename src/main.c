@@ -6,6 +6,7 @@
 
 #include "draw.h"
 #include "text.h"
+#include "storage.h"
 #include "utils.h"
 #include "config.h"
 
@@ -32,13 +33,14 @@ int main(void) {
 		dupdate();
 		pollevent();
 		if (keydown(KEY_F1)) {
-			draw(project, language);
+			draw(&project, language);
 			for (float j = 0; j<40000; j++) {}
 		} else if (keydown(KEY_F2)) {
-			write(project, language);
+			write(&project, language);
 			for (float j = 0; j<40000; j++) {}
 		} else if (keydown(KEY_F3)) {
 		} else if (keydown(KEY_F4)) {
+			storage(&project, language);
 		} else if (keydown(KEY_F5)) {
 			help(language);
 		} else if (keydown(KEY_F6)) {
