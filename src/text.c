@@ -38,7 +38,7 @@ void write(uint16_t* project, int language) {
 		if (keydown(KEY_F1)){
 			char text[27] = "";
 			bool validated = text_input(texts[language], language, text);
-			if (text != "" && validated) {
+			if (strlen(text) && validated) {
 				char menu[12][10] = {
 					"", "",
 					"", "",
