@@ -58,7 +58,9 @@ void draw(uint16_t* project,int language) {
 		dimage(cursor_pos[0],cursor_pos[1],&cursor);
 		draw_menu(menu, language, status);
 		dupdate();
-		for (float j = 0; j<2000; j++) {}
+		if (!status) {
+			for (float j = 0; j<2000; j++) {}
+		} 
 	}
 	return 0;
 }
