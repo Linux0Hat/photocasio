@@ -1,6 +1,10 @@
 # Photocasio
 
-Photocasio is a photo editor/creator designed for Casio Graph 90+E.
+Photocasio is a photo editor/creator designed for Casio Graph 90+E / Casio fx-CG50.
+![plot](./images/intro.png)
+![plot](./images/main-menu.png)
+
+This program has been tested on an emulator ([casio-emu](https://github.com/Heath123/casio-emu)) and a calculator (Casio Graph 90+E / Casio fx-CG50)
 
 ## Build
 
