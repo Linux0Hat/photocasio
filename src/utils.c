@@ -282,20 +282,23 @@ void move_cursor(int *cursor_pos, int *key_in_a_row, int wait_time) {
     (*key_in_a_row)++;
     if (cursor_pos[1] > DHEIGHT - 10) {
         cursor_pos[1] = DHEIGHT - 10;
-    }
-    } else if (keydown(KEY_UP)) {
+      }
+    } 
+  if (keydown(KEY_UP)) {
       cursor_pos[1]--;
       (*key_in_a_row)++;
       if (cursor_pos[1] < 0) {
           cursor_pos[1] = 0;
       }
-  } else if (keydown(KEY_RIGHT)) {
+  } 
+  if (keydown(KEY_RIGHT)) {
       cursor_pos[0]++;
       (*key_in_a_row)++;
       if (cursor_pos[0] > DWIDTH) {
           cursor_pos[0] = DWIDTH;
       }
-  } else if (keydown(KEY_LEFT)) {
+  } 
+  if (keydown(KEY_LEFT)) {
       cursor_pos[0]--;
       (*key_in_a_row)++;
       if (cursor_pos[0] < 0) {
