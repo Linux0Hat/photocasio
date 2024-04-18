@@ -12,10 +12,10 @@ This program has been tested on an emulator ([casio-emu](https://github.com/Heat
 
 ### Dependencies
 
-- `fxsdk`
-- `gint`
-- `make`
-- `cmake`
+- [`fxsdk`](https://git.planet-casio.com/Lephenixnoir/fxsdk)
+- [`gint`](https://git.planet-casio.com/Lephenixnoir/gint)
+  
+[Instalation guide with giteapc (french only)](https://www.planet-casio.com/Fr/forums/topic16614-last-giteapc-installer-et-mettre-a-jour-automatiquement-des-projets-gitea.html)
 
 ### Build Instructions
 
