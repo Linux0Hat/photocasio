@@ -277,34 +277,40 @@ bool text_input(char title[27], int language, char *text) {
 }
 
 void move_cursor(int *cursor_pos, int *key_in_a_row, int wait_time) {
+  bool key_pressed = false;
   if (keydown(KEY_DOWN)) {
     cursor_pos[1]++;
     (*key_in_a_row)++;
+    key_pressed = true;
     if (cursor_pos[1] > DHEIGHT - 10) {
         cursor_pos[1] = DHEIGHT - 10;
       }
     } 
   if (keydown(KEY_UP)) {
-      cursor_pos[1]--;
-      (*key_in_a_row)++;
+    cursor_pos[1]--;
+    (*key_in_a_row)++;
+    key_pressed = true;
       if (cursor_pos[1] < 0) {
           cursor_pos[1] = 0;
       }
   } 
   if (keydown(KEY_RIGHT)) {
-      cursor_pos[0]++;
-      (*key_in_a_row)++;
+    cursor_pos[0]++;
+    (*key_in_a_row)++;
+    key_pressed = true;
       if (cursor_pos[0] > DWIDTH) {
           cursor_pos[0] = DWIDTH;
       }
   } 
   if (keydown(KEY_LEFT)) {
-      cursor_pos[0]--;
-      (*key_in_a_row)++;
+    cursor_pos[0]--;
+    (*key_in_a_row)++;
+    key_pressed = true;
       if (cursor_pos[0] < 0) {
           cursor_pos[0] = 0;
       }
-  } else {
+  } 
+  if (!key_pressed) {
       *key_in_a_row = 0;
   }
 
